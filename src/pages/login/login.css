@@ -1,6 +1,12 @@
 .loginForm {
-  max-width: 1200px;
+  max-width: 500px;
   margin: 50px auto;
+}
+.loginForm .logo {
+  width: 100px;
+  height: 50px;
+  border-radius: 4px;
+  background-color: red;
 }
 .loginForm .ant-form {
   margin: 40px;

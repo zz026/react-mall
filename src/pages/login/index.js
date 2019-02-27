@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
-import './login.less'
+import { Form, Input, Button } from 'antd';
+import * as tips from '../../utils/tips';
+import './login.less';
 
 class Login extends Component {
-
-  state = {
-    confirmDirty: false
+  constructor(props) {
+    super(props);
   }
 
   handleSubmit = (e) => {
@@ -13,32 +13,10 @@ class Login extends Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        tips.success('登录成功')
+        this.props.history.push('home')
       }
     });
-  }
-
-  // 密码验证
-  validateToNextPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
-    }
-    callback();
-  }
-
-  // 二次确认密码
-  handleConfirmBlur = (e) => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
-
-  compareToFirstPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('两次密码不一致!');
-    } else {
-      callback();
-    }
   }
 
   render() {
@@ -46,11 +24,11 @@ class Login extends Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 4 },
+        sm: { span: 10 },
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 20 },
+        sm: { span: 14 },
       },
     };
     const tailFormItemLayout = {
@@ -68,6 +46,12 @@ class Login extends Component {
     return (
       <div className="loginForm">
         <Form onSubmit={this.handleSubmit}>
+           <Form.Item
+           label=" "
+            {...formItemLayout}
+          >
+            <div className="logo">logo</div>
+          </Form.Item>  
           <Form.Item
             {...formItemLayout}
             label="用户名"
@@ -92,27 +76,6 @@ class Login extends Component {
               }],
             })(
               <Input type="password" />
-            )}
-          </Form.Item>
-          <Form.Item
-            {...formItemLayout}
-            label="再次输入密码"
-          >
-            {getFieldDecorator('confirm', {
-              rules: [{
-                required: true, message: '请再次输入密码!',
-              }, {
-                validator: this.compareToFirstPassword,
-              }],
-            })(
-              <Input type="password" onBlur={this.handleConfirmBlur} />
-            )}
-          </Form.Item>
-          <Form.Item {...tailFormItemLayout}>
-            {getFieldDecorator('agreement', {
-              valuePropName: 'checked',
-            })(
-              <Checkbox>我已阅读 <a href="">《霸王条约》</a></Checkbox>
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
