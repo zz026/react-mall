@@ -53,4 +53,11 @@ package.json中
   npm i whatwg-fetch --save
   utils中封装fetch请求
 
-  
+## 7.配置@
+  config/webpack.config.js
+  alias: {
+    '@': paths.appSrc,
+    // Support React Native Web
+    // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+    'react-native': 'react-native-web',
+  },

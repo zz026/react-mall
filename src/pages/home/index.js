@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import { $get } from '../../utils/request' ;
 // import fetch from 'fetch';
 // import fetch from 'dva/fetch';
-import { $get } from '../../utils/request';
+import { $get } from '@/utils/request';
 
 export default class Home extends Component {
 
