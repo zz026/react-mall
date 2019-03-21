@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import App from '../App';
-import Login from '../pages/login'
-import Regist from '../pages/regist'
-import Home from '../pages/home'
+import Login from '@/pages/login'
+import Regist from '@/pages/regist'
+import Home from '@/pages/home'
 
 export default class Router extends Component {
   state = {

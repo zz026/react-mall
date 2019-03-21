@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
-import * as tips from '../../utils/tips';
+import * as tips from '@/utils/tips';
 import './login.less';
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -46,12 +43,7 @@ class Login extends Component {
     return (
       <div className="loginForm">
         <Form onSubmit={this.handleSubmit}>
-           <Form.Item
-           label=" "
-            {...formItemLayout}
-          >
-            <div className="logo">logo</div>
-          </Form.Item>  
+          <div className="logo">logo</div>
           <Form.Item
             {...formItemLayout}
             label="用户名"
@@ -79,7 +71,7 @@ class Login extends Component {
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button htmlType="submit">注册</Button>
+            <Button htmlType="submit">登录</Button>
           </Form.Item>
       </Form>
     </div>
