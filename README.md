@@ -49,11 +49,8 @@ package.json中
   }
 
 
-## 6.引入fetch
-  npm i whatwg-fetch --save
-  utils中封装fetch请求
 
-## 7.配置@
+## 6.配置@
   config/webpack.config.js
   alias: {
     '@': paths.appSrc,
@@ -61,3 +58,12 @@ package.json中
     // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
     'react-native': 'react-native-web',
   },
+
+
+## 7.引入jsonp
+  npm i jsonp --save
+  通过jsonp请求高德地图
+
+## 8.引入axios
+ npm i axios --save
+  通过axios请求数据

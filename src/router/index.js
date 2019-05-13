@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import App from '../App';
 import Login from '@/pages/login'
 import Regist from '@/pages/regist'
@@ -14,7 +14,7 @@ export default class Router extends Component {
   }
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <App>
           <Switch>
             <Route path='/' exact render={()=> (
@@ -25,7 +25,7 @@ export default class Router extends Component {
             <Route path='/home' component={Home}></Route> 
           </Switch>
         </App>
-      </HashRouter>
+      </BrowserRouter>
     )
   }
 }
