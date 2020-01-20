@@ -18,34 +18,11 @@ class Login extends Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 10 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 14 },
-      },
-    };
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-      },
-    };
     return (
       <div className="loginForm">
         <Form onSubmit={this.handleSubmit}>
-          <div className="logo">logo</div>
+          <div className="logo">欢迎登陆</div>
           <Form.Item
-            {...formItemLayout}
             label="用户名"
           >
             {getFieldDecorator('userName', {
@@ -57,7 +34,6 @@ class Login extends Component {
             )}
           </Form.Item>
           <Form.Item
-            {...formItemLayout}
             label="密码"
           >
             {getFieldDecorator('password', {
@@ -70,8 +46,9 @@ class Login extends Component {
               <Input type="password" />
             )}
           </Form.Item>
-          <Form.Item {...tailFormItemLayout}>
-            <Button htmlType="submit">登录</Button>
+          <Form.Item style={{textAlign: 'center'}}>
+            <Button htmlType="submit" type="primary" style={{marginRight: 10}}>登录</Button>
+            <Button>注册</Button>
           </Form.Item>
       </Form>
     </div>

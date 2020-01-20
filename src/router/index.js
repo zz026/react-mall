@@ -4,6 +4,7 @@ import App from '../App';
 import Login from '@/pages/login'
 import Regist from '@/pages/regist'
 import Home from '@/pages/home'
+import Goods from '@/pages/goods'
 
 export default class Router extends Component {
   state = {
@@ -23,6 +24,7 @@ export default class Router extends Component {
             <Route path='/login' component={Login}></Route>
             <Route path='/regist' component={Regist}></Route>
             <Route path='/home' component={Home}></Route> 
+            <Route path='/goods' component={Goods}></Route> 
           </Switch>
         </App>
       </BrowserRouter>

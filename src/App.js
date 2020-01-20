@@ -8,6 +8,7 @@ class App extends Component {
       <div className="App">
         <Layout />
         { this.props.children }
+        {/* <Footer /> */}
       </div>
     );
   }

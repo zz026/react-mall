@@ -1,32 +1,39 @@
 import React, { Component } from 'react'
-// import { $get } from '../../utils/request' ;
-// import fetch from 'fetch';
-// import fetch from 'dva/fetch';
-import { $get } from '@/utils/request';
+import { Menu, Icon } from 'antd';
+
+const SubMenu = Menu.SubMenu;
 
 export default class Home extends Component {
+  rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+  state = {
+    openKeys: ['sub1'],
+  };
 
-  async componentWillMount() {
-    // const res = await $get('/api/goods/list')
-    // fetch('/api/goods/list').then(function(response) {
-    //   return response.json();
-    // }).then(function(data) {
-    //   console.log(data);
-    // }).catch(function(e) {
-    //   console.log("Oops, error");
-    // });
-    const res = await $get('/api/goods/list')
-    console.log('result', res)
+  componentWillMount() {
   }
 
-  getList() {
-    
-  }
   render() {
     return (
-      <div>
-        Home
-      </div>
+      <Menu
+          mode="inline"
+          openKeys={this.state.openKeys}
+          style={{ width: 256 }}
+        >
+          <SubMenu
+            key="sub1"
+            title={
+              <span>
+                <Icon type="mail" />
+                <span>Navigation One</span>
+              </span>
+            }
+          >
+            <Menu.Item key="1">Option 1</Menu.Item>
+            <Menu.Item key="2">Option 2</Menu.Item>
+            <Menu.Item key="3">Option 3</Menu.Item>
+            <Menu.Item key="4">Option 4</Menu.Item>
+          </SubMenu>
+        </Menu>
     )
   }
 }
