@@ -67,3 +67,55 @@ package.json中
 ## 8.引入axios
  npm i axios --save
   通过axios请求数据
+
+## 9 兼容ie11问题
+    yarn add react-app-polyfill
+    src/index.js 第一行
+    import 'react-app-polyfill/ie11';
+    import 'react-app-polyfill/stable';
+
+    package.json 修改
+    "browserslist": [
+      ">0.2%",
+      "not dead",
+      "ie 11",
+      "not op_mini all"
+    ]
+
+## 10 兼容ie9
+  问题1： SCRIPT5009: “Map”未定义
+    在兼容ie 11的基础上修改
+    npm install core-js mutation-observer --save
+
+    import 'core-js/es';
+    import 'mutation-observer';
+    import 'react-app-polyfill/ie9';
+    import 'react-app-polyfill/stable';
+    
+    webpack.config.js下
+    entry: [
+      paths.appIndexJs, // 放在第一位（调换位置）
+       isEnvDevelopment &&
+        require.resolve('react-dev-utils/webpackHotDevClient'),
+    ]
+
+    package.json 修改
+    "browserslist": [
+      ">0.2%",
+      "not dead",
+      "ie > 9",
+      "not op_mini all"
+    ]
+
+    问题2： SCRIPT5007: 缺少对象  
+    修复遗留问题setprototypeof
+
+    npm install setprototypeof --save
+
+    新建 polyfill.js
+
+    import setprototypeof from  'setprototypeof';
+    Object.setPrototypeOf = setprototypeof;
+
+    index.js第一行引入
+    import 'polyfill.js';
